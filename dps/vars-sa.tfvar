@@ -1,0 +1,62 @@
+storage_accounts = {
+  somefiles = {
+    name                     = "somefiles"
+    resource_group_key       = "dps_region1"
+    account_kind             = "StorageV2"
+    account_tier             = "Standard"
+    account_replication_type = "LRS"
+    min_tls_version          = "TLS1_2"
+    allow_blob_public_access = false
+    is_hns_enabled           = false
+
+    enable_system_msi = {
+      type = "SystemAssigned"
+    }
+
+    blob_properties = {
+      cors_rule = {
+        # https://docs.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services
+        allowed_headers    = ["x-ms-meta-abc", "x-ms-meta-data*", "x-ms-meta-target*"]
+        allowed_methods    = ["POST", "GET"]
+        allowed_origins    = ["http://www.contoso.com", "http://www.fabrikam.com"]
+        exposed_headers    = ["x-ms-meta-*"]
+        max_age_in_seconds = "200"
+      }
+    }
+
+    delete_retention_policy = {
+      days = "7"
+    }
+
+    logging = {
+      delete                = true
+      read                  = true
+      write                 = true
+      version               = true
+      retention_policy_days = "7"
+    }
+
+    minute_metrics = {
+      enabled               = true
+      version               = true
+      include_apis          = true
+      retention_policy_days = "7"
+    }
+
+    hour_metrics = {
+      enabled               = true
+      version               = true
+      include_apis          = true
+      retention_policy_days = "7"
+    }
+
+    containers = {
+      small_files = {
+        name = "small-files"
+      }
+      huge_files = {
+        name = "huge-files"
+      }
+    }
+  }
+}

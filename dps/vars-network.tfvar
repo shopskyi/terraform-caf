@@ -1,0 +1,15 @@
+vnets = {
+  aks_region1 = {
+    resource_group_key = "dps_region1"
+    vnet = {
+      name          = ""
+      address_space = ["10.100.10.0/24"]
+    }
+    subnets = {
+      aks = {
+        name = "aks"
+        cidr = ["10.100.10.0/26"]
+      }
+    }
+  }
+}

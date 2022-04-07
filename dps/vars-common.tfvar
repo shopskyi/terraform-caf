@@ -1,0 +1,27 @@
+subscription_id = "3d38c341-b883-45f6-9c17-40db39f4e767" #shopskyi-msdn
+tenant_id       = "96caf09a-8f2d-47dc-9b1a-c9bada9b7d2d" #Shopskyi MSDN
+
+tags = {
+  Environent = "d11"
+  Type       = "development"
+  Project    = "dps"
+  owner      = "Mykola Shopskyi"
+}
+
+global_settings = {
+  prefix         = "dps-d11"
+  inherit_tags   = true #Inherit tags from the resource group to all the resources
+  default_region = "region1"
+  regions = {
+    region1 = "westeurope"
+    region2 = "northeurope"
+  }
+  resource_defaults = {
+  }
+}
+
+resource_groups = {
+  dps_region1 = {
+    name = ""
+  }
+}

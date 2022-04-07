@@ -1,0 +1,15 @@
+  keyvaults = {
+    common = {
+      name                        = ""
+      resource_group_key          = "dps_region1"
+      sku_name                    = "standard"
+      soft_delete_enabled         = true
+      purge_protection_enabled    = true
+      enabled_for_disk_encryption = true
+      creation_policies = {
+        logged_in_user = {
+          secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
+        }
+      }
+    }
+  }
